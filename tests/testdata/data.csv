@@ -1,0 +1,4 @@
+email,password,status
+laura.taylor1234@example.com,test123,Valid
+abcdad@gmail.com,test@143,Invalid
+asdfghj@gmail.com,test567@134,Invalid

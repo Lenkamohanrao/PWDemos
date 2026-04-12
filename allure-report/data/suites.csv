@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8706","search test","chromium","2026-04-04","passed","2026-04-04","","allurereports.spec.ts","",""
+"","7773","Title test","chromium","2026-04-04","passed","2026-04-04","","allurereports.spec.ts","",""
+"","6822","Logo test","chromium","2026-04-04","passed","2026-04-04","","allurereports.spec.ts","",""

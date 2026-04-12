@@ -1,0 +1,17 @@
+[
+  {
+    "email": "laura.taylor1234@example.com",
+    "password": "test123",
+    "status": "Valid"
+  },
+  {
+    "email": "abcdad@gmail.com",
+    "password": "test@143",
+    "status": "Invalid"
+  },
+  {
+    "email": "asdfghj@gmail.com",
+    "password": "test567@134",
+    "status": "Invalid"
+  }
+]

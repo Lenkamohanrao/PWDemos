@@ -1,0 +1,207 @@
+Service Name: MM_Fund_Switch_Redirection_ESB
+
+ESB Dev URL : http://10.155.8.229:9081/MM_Fund_Switch_Redirection_ESBWeb/BSLI/WPS/getValidationDetails
+
+operation name : getValidationDetails
+
+we are sending Input Request below fields
+
+source------------------------->    Can not be Blank
+PolicyId  ---------------------->   Can not be Blank and PolicyId. It is a 9 digit number
+
+1) we are calling the below Query  based on the PolicyId
+
+SELECT TPOL.POL_ID,
+TPOL.PLAN_ID,TFR.FND_ID,
+(SELECT UCASE(EDIT.ETBL_DESC_TXT)
+FROM UDING604.TEDIT AS EDIT
+WHERE EDIT.ETBL_TYP_ID='SEGFD' AND EDIT.ETBL_VALU_ID = TFR.FND_ID) AS FUND_NAME
+FROM UDING604.TFR TFR, UDING604.TPOL TPOL, UDING604.TZPIP TZPIP
+WHERE TPOL.CO_ID = 'CP'
+AND TFR.CO_ID = 'CP'
+AND TZPIP.CO_ID = 'CP'
+AND TZPIP.POL_ID = TPOL.POL_ID
+AND TPOL.PLAN_ID = TFR.PLAN_ID
+AND TPOL.POL_CSTAT_CD IN ('1','2','4','8')
+AND TFR.FND_ID NOT IN ('I0IPD','I0PPD','I00PD','I000D','I00EG')
+and TPOL.PLAN_ID not in (select PLAN_ID from uding604.TPH where CO_ID='CP' and plan_pol_typ in ('DEP','DRT','DRC'))
+AND TPOL.POL_ID IN (?)
+UNION
+SELECT TPOL.POL_ID,
+TPOL.PLAN_ID,TFR.FND_ID,
+(SELECT UCASE(EDIT.ETBL_DESC_TXT)
+ FROM UDING604.TEDIT AS EDIT
+WHERE EDIT.ETBL_TYP_ID='SEGFD' AND EDIT.ETBL_VALU_ID = TFR.FND_ID) AS FUND_NAME
+FROM UDING604.TFR TFR, UDING604.TPOL TPOL
+WHERE TPOL.CO_ID = 'CP'
+AND TFR.CO_ID = 'CP'
+AND TPOL.PLAN_ID = TFR.PLAN_ID
+AND TPOL.POL_ID NOT IN (SELECT POL_ID FROM UDING604.TZPIP)
+AND TPOL.POL_CSTAT_CD IN ('1','2','4','8')
+AND TFR.FND_ID NOT IN ('I0IPD','I0PPD','I00PD','I000D','I00EG')
+and TPOL.PLAN_ID not in (select PLAN_ID from uding604.TPH where CO_ID='CP' and plan_pol_typ in ('DEP','DRT','DRC'))
+AND TPOL.POL_ID IN (?)
+WITH UR
+
+
+Input field from the above Query :  PolicyId
+
+Output Fields from the above Query
+pol_id
+plan_id
+fnd_id
+fund_name
+
+
+
+-----------------------------------------------------------------------------------------------------
+
+DATA Base : UDING604
+
+HOST NAME :  110.155.8.185
+
+Port Number :  20004
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+ESB Req :
+
+{
+    "Request": {
+        "source": "417070313337",
+        "PolicyId": "007801122"
+    }
+}
+ESB Res :
+
+{
+    "Response": [
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0001",
+            "fund_name": "INDIVIDUAL LIFE - PROTECTOR"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0002",
+            "fund_name": "INDIVIDUAL LIFE - BUILDER"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0003",
+            "fund_name": "INDIVIDUAL LIFE - ENHANCER"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0004",
+            "fund_name": "INDIVIDUAL LIFE - CREATOR"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0005",
+            "fund_name": "INDIVIDUAL LIFE - MAGNIFIER"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0006",
+            "fund_name": "INDIVIDUAL LIFE - ASSURE"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0007",
+            "fund_name": "INDIVIDUAL LIFE - MAXIMISER"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0008",
+            "fund_name": "INDIVIDUAL LIFE - MULTIPLIER"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0009",
+            "fund_name": "INDIVIDUAL LIFE - INCOME ADVANTAGE"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0010",
+            "fund_name": "INDIVIDUAL LIFE - SUPER 20"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0011",
+            "fund_name": "INDIVIDUAL LIFE - LIQUID PLUS"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0012",
+            "fund_name": "INDIVIDUAL LIFE - PURE EQUITY FUND"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0013",
+            "fund_name": "INDIVIDUAL LIFE - VALUE & MOMENTUM FUND"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0015",
+            "fund_name": "INDIVIDUAL LIFE-CAPPED NIFTY INDEX FUND"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0016",
+            "fund_name": "INDIVIDUAL LIFE - ASSET ALLOCATION FUND"
+        },
+        {
+            "pol_id": "007801122",
+            "plan_id": "A2F001",
+            "fnd_id": "I0017",
+            "fund_name": "INDIVIDUAL LIFE - MNC"
+        }
+    ]
+}
+
+ESB Error Resp :
+400 bad request
+{
+    "Fault": {
+        "FaultCode": "W4FRVD",
+        "FaultMessage": "Business Exception Occurred in WPS. Input_Data_Validation_Fail : PolicyId cannot be Blank"
+    }
+}
+
+400 bad request
+{
+    "Fault": {
+        "FaultCode": "W4FRVD",
+        "FaultMessage": "Business Exception Occurred in WPS. Input_Data_Validation_Fail : Invalid PolicyId. It is a 9 digit number"
+    }
+}
+
+400 bad request
+
+{
+    "Fault": {
+        "FaultCode": "W4FRVD",
+        "FaultMessage": "Business Exception Occurred in WPS. Invalid_JSON : Invalid JSON"
+    }
+}
+404 not found
+http://workdev.bsli.in:9080/MM_Fund_Switch_Redirection_ESBWeb/BSLI/WPS/getValidationDetail
