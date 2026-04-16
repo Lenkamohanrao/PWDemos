@@ -1,5 +1,7 @@
 import{test,expect} from "@playwright/test"
 
+//npx playwright test --grep
+
 test("verify the tagging testtest",{tag:'@regression'},async({page})=>{
 await page.goto("https://www.google.com/")
 await page.locator("text='Store'").click();

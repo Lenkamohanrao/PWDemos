@@ -1,0 +1,10 @@
+{
+  bookingid: 885,
+  booking: {
+    firstname: 'Mark',
+    lastname: 'Wilson',
+    totalprice: 344,
+    depositpaid: true,
+    bookingdates: { checkin: '2021-09-20', checkout: '2023-01-18' }
+  }
+}

@@ -6,7 +6,4 @@ const timestamp=Date.now()
 
 await page.screenshot({path:'screnshots/'+'fullpage'+'homepage'+timestamp+'.png',fullPage:true})
 
-
-
-
 })

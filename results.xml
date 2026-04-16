@@ -1,2 +1,20 @@
-<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="0.14463699999999993">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.6159570000000003">
+<testsuite name="apitests\get-api-request-04-queryparameter.spec.ts" timestamp="2026-04-15T10:04:33.443Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.989" errors="0">
+<testcase name="verify the Booking id Query parameter" classname="apitests\get-api-request-04-queryparameter.spec.ts" time="1.989">
+<system-out>
+<![CDATA[[
+  { bookingid: [33m10[39m },
+  { bookingid: [33m209[39m },
+  { bookingid: [33m619[39m },
+  { bookingid: [33m804[39m },
+  { bookingid: [33m1252[39m },
+  { bookingid: [33m1253[39m },
+  { bookingid: [33m1254[39m },
+  { bookingid: [33m1569[39m },
+  { bookingid: [33m1571[39m }
+]
+]]>
+</system-out>
+</testcase>
+</testsuite>
 </testsuites>

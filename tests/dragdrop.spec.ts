@@ -7,7 +7,4 @@ test("verfy the drag and drop",async({page})=>{
     const target=page.locator("#droppable");
     await source.dragTo(target);
     await page.waitForTimeout(5000)
-
-
-
 })

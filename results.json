@@ -10,14 +10,18 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 1
+    },
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "C:/Automation/PWDemos/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "chromium",
         "name": "chromium",
         "testDir": "C:/Automation/PWDemos/tests",
@@ -78,22 +82,59 @@
     "workers": 6,
     "webServer": null
   },
-  "suites": [],
-  "errors": [
+  "suites": [
     {
-      "message": "Error: duplicate test title \"Verify Google\", first declared in annotations.spec.ts:3",
-      "location": {
-        "file": "C:\\Automation\\PWDemos\\tests\\annotations.spec.ts",
-        "line": 8,
-        "column": 5
-      },
-      "snippet": "\u001b[90m   at \u001b[39mannotations.spec.ts:8\n\n\u001b[0m \u001b[90m  6 |\u001b[39m })\n \u001b[90m  7 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 |\u001b[39m test(\u001b[32m\"Verify Google\"\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n \u001b[90m    |\u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  9 |\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m\"https://www.google.com/?zx=1774789104337&no_sw_cr=1\"\u001b[39m)\n \u001b[90m 10 |\u001b[39m \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[32m\"Google\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m })\u001b[0m"
+      "title": "apitests\\get-api-request-04-queryparameter.spec.ts",
+      "file": "apitests/get-api-request-04-queryparameter.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "verify the Booking id Query parameter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1989,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[\n  { bookingid: \u001b[33m10\u001b[39m },\n  { bookingid: \u001b[33m209\u001b[39m },\n  { bookingid: \u001b[33m619\u001b[39m },\n  { bookingid: \u001b[33m804\u001b[39m },\n  { bookingid: \u001b[33m1252\u001b[39m },\n  { bookingid: \u001b[33m1253\u001b[39m },\n  { bookingid: \u001b[33m1254\u001b[39m },\n  { bookingid: \u001b[33m1569\u001b[39m },\n  { bookingid: \u001b[33m1571\u001b[39m }\n]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-15T10:04:34.011Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1a044720e35444036b5-4c33bf2370fd747e46a7",
+          "file": "apitests/get-api-request-04-queryparameter.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
     }
   ],
+  "errors": [],
   "stats": {
-    "startTime": "2026-04-11T12:23:17.346Z",
-    "duration": 144.63699999999994,
-    "expected": 0,
+    "startTime": "2026-04-15T10:04:33.425Z",
+    "duration": 2615.9570000000003,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

@@ -18,7 +18,7 @@ test("verify the post api request", async ({ request }) => {
     { data: requestBody }
   );
 
-  const responseBody = await response.json();
+  const responseBody =  await response.json();
   console.log(responseBody);
 
   // Status validations
@@ -37,6 +37,7 @@ test("verify the post api request", async ({ request }) => {
     lastname: "Wilson",
     totalprice: 344,
     depositpaid: true,
+    
   });
 
   // Booking dates validation
